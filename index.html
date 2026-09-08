@@ -107,17 +107,21 @@ body.is-on .stage{opacity:1}
 .ca b{font-weight:700;color:var(--ink);overflow-wrap:anywhere;font-size:14px}
 
 /* portrait */
-.pup{position:relative;margin:18px 0 0;width:min(100%,230px);cursor:pointer;user-select:none}
-.pup img{width:100%;height:auto;border:7px solid var(--cream);border-radius:20px;box-shadow:0 12px 0 rgba(0,0,0,.16)}
-.pup .tag{position:absolute;right:-8px;bottom:-12px;background:var(--pink);color:#fff;font-family:'Baloo 2',cursive;
+.pup{position:relative;margin:0 auto;width:min(100%,420px);cursor:pointer;user-select:none}
+.pup img{width:100%;height:auto;border:9px solid var(--cream);border-radius:26px;box-shadow:0 16px 0 rgba(0,0,0,.16)}
+.pup .tag{position:absolute;right:-6px;bottom:-14px;font-size:14px;background:var(--pink);color:#fff;font-family:'Baloo 2',cursive;
   font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;transform:rotate(-5deg);box-shadow:0 4px 0 #c93a72}
 #drop{position:absolute;inset:0;overflow:visible;pointer-events:none;z-index:6}
 .coin{position:absolute;width:26px;height:26px;border-radius:50%;
   background:radial-gradient(circle at 34% 30%,#fff6c4,var(--wow) 46%,#a67c07 100%);border:2px solid #6b5106}
 
+.godig{display:flex;justify-content:center;margin:30px auto 0;text-align:center;max-width:420px}
+#dig{background:linear-gradient(180deg,var(--sky),#a9e2f8)}
+.yard-in{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;align-items:start;margin-top:6px}
+.yard-in>*{min-width:0}
 /* the garden */
-.yard{background:var(--cream);border:4px solid var(--ink);border-radius:22px;padding:14px;
-  box-shadow:0 14px 0 rgba(0,0,0,.2)}
+.yard{background:var(--cream);border:4px solid var(--ink);border-radius:22px;padding:16px;
+  box-shadow:0 14px 0 rgba(0,0,0,.2);margin-top:24px}
 .y-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:10px}
 .y-top h3{font-family:'Baloo 2',cursive;font-weight:800;font-size:23px;line-height:1}
 .y-top p{margin:2px 0 0;font-size:13.5px;color:#7a664f}
@@ -125,9 +129,9 @@ body.is-on .stage{opacity:1}
 .count u{display:block;text-decoration:none;font-size:11px;letter-spacing:.12em;color:#9c8768;text-transform:uppercase;font-weight:700}
 .count b{font-family:'Baloo 2',cursive;font-weight:800;font-size:21px;color:var(--dirt-d)}
 .count.f b{color:#2e8b2e}
-.plot{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;background:var(--grass-d);
+.plot{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:1fr;gap:7px;background:var(--grass-d);
   border:4px solid var(--grass-d);border-radius:14px;padding:7px}
-.tile{aspect-ratio:1/1;border:0;border-radius:9px;position:relative;overflow:hidden;
+.tile{aspect-ratio:1/1;min-width:0;width:100%;border:0;border-radius:9px;position:relative;overflow:hidden;
   background:
     radial-gradient(circle at 30% 20%,var(--grass-l) 0 14%,transparent 15%),
     radial-gradient(circle at 70% 60%,var(--grass-l) 0 12%,transparent 13%),
@@ -141,9 +145,9 @@ body.is-on .stage{opacity:1}
   box-shadow:inset 0 4px 8px rgba(0,0,0,.45);cursor:default}
 .tile.dug:hover{transform:none}
 .tile.dug .em{opacity:1;transform:scale(1) rotate(0)}
-.tile.bone{background:radial-gradient(circle at 50% 45%,#7a5b2a 0 46%,#a97c3a 47% 100%);
+.tile.dugbone{background:radial-gradient(circle at 50% 45%,#7a5b2a 0 46%,#a97c3a 47% 100%);
   box-shadow:inset 0 0 0 3px var(--wow),inset 0 4px 8px rgba(0,0,0,.35)}
-.found{margin-top:11px;background:#fff3d8;border:3px solid var(--ink);border-radius:14px;padding:11px 13px;
+.found{margin-top:0;background:#fff3d8;border:3px solid var(--ink);border-radius:14px;padding:11px 13px;
   font-size:15.5px;min-height:78px}
 .found b{color:var(--shiba-d)}
 .found.hit{background:#e8ffdf}
@@ -209,14 +213,14 @@ footer p{font-size:13px;opacity:.85;margin:8px 0 0}
 
 @media (max-width:980px){
   .hero-in{grid-template-columns:1fr}
-  .hero-in>div:last-child{order:-1}
+  .yard-in{grid-template-columns:1fr}
   .bones{grid-template-columns:1fr 1fr}
   .notes{grid-template-columns:1fr}
   .pr{grid-template-columns:1fr}
 }
 @media (max-width:560px){
   .bones{grid-template-columns:1fr}
-  .plot{grid-template-columns:repeat(4,1fr)}
+  .plot{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -245,16 +249,25 @@ footer p{font-size:13px;opacity:.85;margin:8px 0 0}
         <a class="btn" href="https://x.com" target="_blank" rel="noopener">X</a>
       </div>
       <div class="ca"><span>Contract</span><b class="ca-val">soon</b></div>
-
-      <figure class="pup" id="pup">
-        <img src="assets/f-face.webp" alt="Hentinu at the desk, four minutes before the water bowl">
-        <figcaption class="tag">pat him · he pays</figcaption>
-        <div id="drop"></div>
-      </figure>
     </div>
 
     <div>
-      <div class="yard" id="yard">
+      <figure class="pup" id="pup">
+        <img src="assets/f-full.webp" alt="Hentinu at the desk, four minutes before the water bowl">
+        <figcaption class="tag">pat him · he pays</figcaption>
+        <div id="drop"></div>
+      </figure>
+      <a class="btn dig godig" href="#dig">🦴 The backup is in the garden — dig it up</a>
+
+    </div>
+
+  </div>
+</header>
+
+<section id="dig">
+  <div class="in">
+    <h2 class="h2">Dig up the garden<em>he buried the backup out here somewhere · twenty four holes · eight bones</em></h2>
+    <div class="yard" id="yard">
         <div class="y-top">
           <div>
             <h3>The garden</h3>
@@ -267,19 +280,20 @@ footer p{font-size:13px;opacity:.85;margin:8px 0 0}
           </div>
         </div>
 
-        <div class="plot" id="plot"></div>
-
-        <div class="found" id="found">Pick a patch of grass. He has narrowed it down to the garden.</div>
-
-        <div class="snds">
-          <button id="kSnd">Sound: off</button>
-          <button id="kMus">Music: off</button>
-          <button id="kAll">Dig the whole lawn</button>
+        <div class="yard-in">
+          <div class="plot" id="plot"></div>
+          <div>
+            <div class="found" id="found">Pick a patch of grass. He has narrowed it down to the garden.</div>
+            <div class="snds">
+              <button id="kSnd">Sound: off</button>
+              <button id="kMus">Music: off</button>
+              <button id="kAll">Dig the whole lawn</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
   </div>
-</header>
+</section>
 
 <section id="drive">
   <div class="in">
@@ -491,7 +505,7 @@ function dig(i){
   sfxDig();
   var ac2=ac(); if(ac2&&ac2.state==='suspended') ac2.resume();
   if(c.file!==undefined){
-    b.classList.add('bone'); filesN++;
+    b.classList.add('dugbone'); filesN++;
     document.getElementById('cFiles').textContent=filesN+' / 8';
     var card=document.getElementById('bn'+c.file);
     if(card){ card.classList.remove('locked'); card.classList.add('got'); }
