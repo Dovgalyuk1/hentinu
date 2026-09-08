@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HENTINU BODEN LAPTOP · $HENTINU</title>
+<meta name="description" content="He broke the laptop, left it at the repair shop and never came back. The backup is buried in the garden and he does not remember which hole.">
+<link rel="icon" href="assets/favicon.png">
+<meta property="og:title" content="HENTINU BODEN LAPTOP · $HENTINU">
+<meta property="og:description" content="Twenty four holes. Eight of them have a bone with a file on it. Start digging.">
+<meta property="og:image" content="assets/ava.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+<script>
+/* SETTINGS - everything is changed here, at the top, in ONE place */
+window.CONTRACT = "";  /* contract address. empty = "soon" */
+window.TWITTER  = "";  /* link to X. empty = plain x.com link */
+</script>
+
+<style>
+:root{
+  --sky:#8ed8f8;
+  --sky-2:#cdefff;
+  --grass:#63bf3f;
+  --grass-d:#3f8f2b;
+  --grass-l:#82d95c;
+  --dirt:#966236;
+  --dirt-d:#6d4525;
+  --shiba:#e8993d;
+  --shiba-d:#b76e1c;
+  --cream:#fffaf0;
+  --ink:#2c1d0f;
+  --pink:#ff6fa5;
+  --wow:#ffd23f;
+  --blue:#3f7fd8;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--sky);color:var(--ink);font-family:'Comic Neue',ui-rounded,system-ui,sans-serif;
+  font-size:17px;line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0}
+button{font-family:inherit;cursor:pointer}
+
+.clouds{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+   radial-gradient(closest-side,rgba(255,255,255,.9),transparent) 12% 14%/220px 90px no-repeat,
+   radial-gradient(closest-side,rgba(255,255,255,.75),transparent) 78% 8%/300px 110px no-repeat,
+   radial-gradient(closest-side,rgba(255,255,255,.6),transparent) 55% 22%/180px 70px no-repeat}
+.stage{position:relative;z-index:1}
+
+/* gate */
+#gate{position:fixed;inset:0;z-index:150;display:grid;place-items:center;
+  background:linear-gradient(180deg,var(--sky-2),var(--sky) 60%,var(--grass) 60.2%);
+  transition:opacity .6s ease,visibility .6s}
+#gate.is-gone{opacity:0;visibility:hidden;pointer-events:none}
+#gate .gin{text-align:center;padding:22px;max-width:640px}
+#gate img{width:min(60vw,240px);margin:0 auto 18px;border:6px solid var(--cream);border-radius:22px;
+  box-shadow:0 14px 0 rgba(0,0,0,.18)}
+#gate h2{font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(26px,5.4vw,52px);color:var(--cream);
+  line-height:1.05;text-shadow:0 4px 0 var(--shiba-d),0 8px 0 rgba(0,0,0,.15)}
+#gate p{color:#2c1d0f;opacity:.65;font-size:15px;margin:10px 0 22px}
+.enter{background:var(--shiba);color:#fff;border:0;border-bottom:6px solid var(--shiba-d);border-radius:999px;
+  font-family:'Baloo 2',cursive;font-weight:800;font-size:19px;letter-spacing:.06em;padding:14px 34px}
+.enter:active{transform:translateY(4px);border-bottom-width:2px}
+.stage{opacity:.2;transition:opacity .8s ease}
+body.is-on .stage{opacity:1}
+
+/* marquee */
+.mq{overflow:hidden;height:36px;position:relative;background:var(--wow);color:var(--ink);
+  border-bottom:4px solid var(--ink)}
+.mq div{position:absolute;white-space:nowrap;top:50%;transform:translateY(-50%);font-weight:700;font-size:14px;
+  letter-spacing:.14em;text-transform:uppercase;animation:mq 30s linear infinite;padding-left:100%}
+@keyframes mq{from{transform:translate(0,-50%)}to{transform:translate(-100%,-50%)}}
+
+/* hero */
+.hero{padding:26px 18px 40px;background:linear-gradient(180deg,var(--sky-2),var(--sky))}
+.hero-in{max-width:1260px;margin:0 auto;display:grid;grid-template-columns:1fr .96fr;gap:26px;align-items:start}
+.hero-in>*{min-width:0}
+.kick{font-size:13px;letter-spacing:.16em;color:#2c1d0f;opacity:.6;text-transform:uppercase;font-weight:700}
+.mark{font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(44px,8vw,108px);line-height:.95;margin:6px 0 0;
+  color:var(--cream);text-transform:uppercase;letter-spacing:.01em;
+  text-shadow:0 6px 0 var(--shiba-d),0 12px 14px rgba(0,0,0,.22)}
+.mark small{display:block;font-size:.38em;color:var(--blue);text-shadow:0 4px 0 #fff,0 7px 0 rgba(0,0,0,.14);margin-top:4px}
+.wowline{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.wowline i{font-style:italic;font-weight:700;font-size:15px;transform:rotate(-3deg)}
+.wowline i:nth-child(2){color:var(--pink);transform:rotate(2deg)}
+.wowline i:nth-child(3){color:var(--blue);transform:rotate(-1deg)}
+.wowline i:nth-child(4){color:#2e8b2e;transform:rotate(3deg)}
+.lede{margin-top:14px;font-size:17.5px;line-height:1.65;color:#31220f;max-width:56ch;
+  background:rgba(255,255,255,.55);padding:12px 14px;border-radius:14px}
+.lede+.lede{margin-top:10px}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-family:'Baloo 2',cursive;font-weight:800;
+  font-size:15px;padding:12px 20px;border:0;border-radius:999px;background:var(--cream);color:var(--ink);
+  border-bottom:5px solid rgba(0,0,0,.18)}
+.btn:active{transform:translateY(3px);border-bottom-width:2px}
+.btn.dig{background:var(--shiba);color:#fff;border-bottom-color:var(--shiba-d)}
+.btn.blue{background:var(--blue);color:#fff;border-bottom-color:#255a9e}
+.ca{margin-top:14px;display:inline-flex;gap:10px;align-items:center;background:rgba(255,255,255,.7);
+  border:2px dashed var(--dirt);border-radius:12px;padding:9px 13px;cursor:pointer;max-width:100%}
+.ca span{font-size:12px;letter-spacing:.14em;color:var(--dirt-d);text-transform:uppercase;font-weight:700;white-space:nowrap}
+.ca b{font-weight:700;color:var(--ink);overflow-wrap:anywhere;font-size:14px}
+
+/* portrait */
+.pup{position:relative;margin:18px 0 0;width:min(100%,230px);cursor:pointer;user-select:none}
+.pup img{width:100%;height:auto;border:7px solid var(--cream);border-radius:20px;box-shadow:0 12px 0 rgba(0,0,0,.16)}
+.pup .tag{position:absolute;right:-8px;bottom:-12px;background:var(--pink);color:#fff;font-family:'Baloo 2',cursive;
+  font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;transform:rotate(-5deg);box-shadow:0 4px 0 #c93a72}
+#drop{position:absolute;inset:0;overflow:visible;pointer-events:none;z-index:6}
+.coin{position:absolute;width:26px;height:26px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#fff6c4,var(--wow) 46%,#a67c07 100%);border:2px solid #6b5106}
+
+/* the garden */
+.yard{background:var(--cream);border:4px solid var(--ink);border-radius:22px;padding:14px;
+  box-shadow:0 14px 0 rgba(0,0,0,.2)}
+.y-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.y-top h3{font-family:'Baloo 2',cursive;font-weight:800;font-size:23px;line-height:1}
+.y-top p{margin:2px 0 0;font-size:13.5px;color:#7a664f}
+.counts{display:flex;gap:14px}
+.count u{display:block;text-decoration:none;font-size:11px;letter-spacing:.12em;color:#9c8768;text-transform:uppercase;font-weight:700}
+.count b{font-family:'Baloo 2',cursive;font-weight:800;font-size:21px;color:var(--dirt-d)}
+.count.f b{color:#2e8b2e}
+.plot{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;background:var(--grass-d);
+  border:4px solid var(--grass-d);border-radius:14px;padding:7px}
+.tile{aspect-ratio:1/1;border:0;border-radius:9px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 30% 20%,var(--grass-l) 0 14%,transparent 15%),
+    radial-gradient(circle at 70% 60%,var(--grass-l) 0 12%,transparent 13%),
+    var(--grass);
+  box-shadow:inset 0 -4px 0 rgba(0,0,0,.16);transition:transform .1s}
+.tile:hover{transform:translateY(-2px)}
+.tile:active{transform:translateY(1px)}
+.tile .em{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(20px,3.4vw,30px);
+  opacity:0;transform:scale(.4) rotate(-20deg);transition:.28s}
+.tile.dug{background:radial-gradient(circle at 50% 45%,var(--dirt-d) 0 46%,var(--dirt) 47% 100%);
+  box-shadow:inset 0 4px 8px rgba(0,0,0,.45);cursor:default}
+.tile.dug:hover{transform:none}
+.tile.dug .em{opacity:1;transform:scale(1) rotate(0)}
+.tile.bone{background:radial-gradient(circle at 50% 45%,#7a5b2a 0 46%,#a97c3a 47% 100%);
+  box-shadow:inset 0 0 0 3px var(--wow),inset 0 4px 8px rgba(0,0,0,.35)}
+.found{margin-top:11px;background:#fff3d8;border:3px solid var(--ink);border-radius:14px;padding:11px 13px;
+  font-size:15.5px;min-height:78px}
+.found b{color:var(--shiba-d)}
+.found.hit{background:#e8ffdf}
+.snds{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.snds button{background:#fff;border:3px solid var(--ink);border-radius:999px;font-family:'Baloo 2',cursive;
+  font-weight:800;font-size:12.5px;padding:8px 13px}
+.snds button:active{transform:translateY(2px)}
+
+/* sections */
+section{padding:clamp(34px,5vw,68px) 18px}
+#drive{background:var(--cream);border-top:5px solid var(--ink);border-bottom:5px solid var(--ink)}
+#how{background:var(--grass)}
+#passport{background:var(--sky-2)}
+.in{max-width:1260px;margin:0 auto}
+.h2{font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(28px,5vw,56px);line-height:1;text-transform:uppercase}
+.h2 em{display:block;font-style:normal;font-family:'Comic Neue',sans-serif;font-weight:400;font-size:15px;
+  color:#7a664f;margin-top:8px;text-transform:none}
+#how .h2{color:var(--cream);text-shadow:0 4px 0 var(--grass-d)}
+#how .h2 em{color:#eaffdc}
+
+.bones{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:26px}
+.bone{background:#fff;border:3px solid var(--ink);border-radius:16px;padding:14px;position:relative;min-height:170px;
+  box-shadow:0 7px 0 rgba(0,0,0,.16)}
+.bone .no{font-size:11.5px;letter-spacing:.14em;color:#9c8768;text-transform:uppercase;font-weight:700}
+.bone h3{font-family:'Baloo 2',cursive;font-weight:800;font-size:19px;margin:5px 0 7px}
+.bone p{margin:0;font-size:15px;line-height:1.5;color:#4a3a26}
+.bone.locked h3,.bone.locked p{filter:blur(5px);opacity:.4;user-select:none}
+.bone.locked:after{content:"still in the ground";position:absolute;left:14px;right:14px;top:54%;text-align:center;
+  font-weight:700;font-size:13px;color:var(--dirt-d)}
+.bone.got{background:#f4ffe9;border-color:#2e8b2e}
+
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:26px}
+.note{background:var(--cream);border:3px solid var(--ink);border-radius:16px;padding:15px;box-shadow:0 7px 0 rgba(0,0,0,.2)}
+.note h3{font-family:'Baloo 2',cursive;font-weight:800;font-size:20px;margin-bottom:7px;color:var(--shiba-d)}
+.note p{margin:0;font-size:15.5px;line-height:1.55;color:#4a3a26}
+.note img{margin-top:12px;border:3px solid var(--ink);border-radius:12px}
+
+.pass{margin-top:26px;background:var(--cream);border:4px solid var(--ink);border-radius:18px;overflow:hidden;
+  box-shadow:0 10px 0 rgba(0,0,0,.18)}
+.pr{display:grid;grid-template-columns:190px 1fr;border-bottom:3px dashed #d8c9ae}
+.pr:last-child{border-bottom:0}
+.pr u{text-decoration:none;padding:14px;background:#fff3d8;font-weight:700;font-size:12.5px;letter-spacing:.14em;
+  color:var(--dirt-d);text-transform:uppercase}
+.pr div{padding:14px}
+.pr b{display:block;font-family:'Baloo 2',cursive;font-weight:800;font-size:20px;margin-bottom:4px}
+.pr p{margin:0;font-size:15px;color:#4a3a26;line-height:1.5}
+
+footer{background:var(--grass-d);color:var(--cream);text-align:center;padding:30px 18px 42px;border-top:5px solid var(--ink)}
+footer .fm{font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(24px,3.6vw,40px);text-transform:uppercase;
+  text-shadow:0 4px 0 rgba(0,0,0,.25)}
+footer p{font-size:13px;opacity:.85;margin:8px 0 0}
+.ca-row{display:inline-flex;gap:9px;align-items:center;background:rgba(255,255,255,.14);border:2px dashed var(--cream);
+  border-radius:12px;padding:9px 13px;margin-top:16px;cursor:pointer;max-width:100%}
+.ca-row span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;opacity:.8}
+.ca-row b{font-weight:700;overflow-wrap:anywhere}
+
+#final{position:fixed;inset:0;z-index:120;display:grid;place-items:center;pointer-events:none;opacity:0;transition:opacity .5s}
+#final.on{opacity:1}
+#final .card{background:var(--cream);border:5px solid var(--ink);border-radius:22px;padding:24px 28px;text-align:center;
+  max-width:600px;box-shadow:0 20px 0 rgba(0,0,0,.25);transform:rotate(-1.5deg)}
+#final h3{font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(24px,3.6vw,38px);line-height:1.05}
+#final p{margin:10px 0 0;font-size:16px}
+
+@media (max-width:980px){
+  .hero-in{grid-template-columns:1fr}
+  .hero-in>div:last-child{order:-1}
+  .bones{grid-template-columns:1fr 1fr}
+  .notes{grid-template-columns:1fr}
+  .pr{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .bones{grid-template-columns:1fr}
+  .plot{grid-template-columns:repeat(4,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="clouds"></div>
+<div class="stage">
+
+<div class="mq"><div>much lost &nbsp;•&nbsp; very bury &nbsp;•&nbsp; such garden &nbsp;•&nbsp; the ticket has a paw print on it &nbsp;•&nbsp; twenty four holes, eight bones &nbsp;•&nbsp; wow &nbsp;•&nbsp; he is sorry about the lawn &nbsp;•&nbsp;</div></div>
+
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <div class="kick">Robinhood Chain · one paw print on the ticket · forty two square metres of garden</div>
+      <h1 class="mark">Hentinu<small>Boden Laptop</small></h1>
+      <div class="wowline"><i>much drive</i><i>very buried</i><i>such lawn</i><i>wow</i></div>
+
+      <p class="lede">The laptop was not his. It belonged to the desk, and the desk belongs to somebody who is at work right now, and by the time anybody noticed, he had stood on the keyboard with all four feet and tipped the water bowl into the gap above the arrow keys.</p>
+      <p class="lede">He carried it into a small repair shop, signed the ticket with one paw and never went back for it, so everything on that drive is public property now. He did make a backup first, like a responsible dog, and then he buried it in the garden, and he is not going to pretend he remembers which hole.</p>
+
+      <div class="row">
+        <a class="btn dig" href="#yard">🦴 Start digging</a>
+        <a class="btn" href="https://pump.fun" target="_blank" rel="noopener">Buy $HENTINU</a>
+        <a class="btn blue" href="https://dexscreener.com" target="_blank" rel="noopener">Chart</a>
+        <a class="btn" href="https://x.com" target="_blank" rel="noopener">X</a>
+      </div>
+      <div class="ca"><span>Contract</span><b class="ca-val">soon</b></div>
+
+      <figure class="pup" id="pup">
+        <img src="assets/f-face.webp" alt="Hentinu at the desk, four minutes before the water bowl">
+        <figcaption class="tag">pat him · he pays</figcaption>
+        <div id="drop"></div>
+      </figure>
+    </div>
+
+    <div>
+      <div class="yard" id="yard">
+        <div class="y-top">
+          <div>
+            <h3>The garden</h3>
+            <p>twenty four holes · eight of them have a bone with a file on it</p>
+          </div>
+          <div class="counts">
+            <div class="count f"><u>files</u><b id="cFiles">0 / 8</b></div>
+            <div class="count"><u>holes</u><b id="cHoles">0</b></div>
+            <div class="count"><u>not files</u><b id="cJunk">0</b></div>
+          </div>
+        </div>
+
+        <div class="plot" id="plot"></div>
+
+        <div class="found" id="found">Pick a patch of grass. He has narrowed it down to the garden.</div>
+
+        <div class="snds">
+          <button id="kSnd">Sound: off</button>
+          <button id="kMus">Music: off</button>
+          <button id="kAll">Dig the whole lawn</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="drive">
+  <div class="in">
+    <h2 class="h2">What was on the drive<em>eight bones · one per file · he chewed the labels off all of them</em></h2>
+    <div class="bones" id="bones"></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="in">
+    <h2 class="h2">How it happened<em>three witnesses · one water bowl · nobody is in trouble, apparently</em></h2>
+    <div class="notes">
+      <div class="note"><h3>The water bowl</h3><p>The bowl lives to the left of the desk and always has. On that particular afternoon it went into the keyboard, which he maintains was a coincidence, and the fan made a noise the whole street heard once and never again.</p>
+        <img src="assets/f-paws.webp" alt="the paws, still on the keyboard, entirely innocent" loading="lazy"></div>
+      <div class="note"><h3>The repair shop</h3><p>He carried it in with both front paws, put it on the counter, and pressed one paw into the ticket where the signature goes. They asked for a phone number. He gave them a long look and went home. That was eighteen months ago.</p>
+        <img src="assets/f-laptop.webp" alt="the laptop on the shop counter, lid closed, one paw print on the ticket" loading="lazy"></div>
+      <div class="note"><h3>The burial</h3><p>Before the shop, he did the responsible thing and copied everything onto a drive. Then he did the other responsible thing and buried it, at night, quickly, in the one part of the garden he was sure he would remember, and he was wrong about that part.</p>
+        <img src="assets/f-mug.webp" alt="the mug he is not allowed to drink from, still on the desk" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="passport">
+  <div class="in">
+    <h2 class="h2">The pet passport<em>stamped, chipped and fully on chain</em></h2>
+    <div class="pass">
+      <div class="pr"><u>Total supply</u><div><b>1,000,000,000</b><p>Fixed on the day he was chipped. No litter of extra tokens held back somewhere warm for a friend of the family.</p></div></div>
+      <div class="pr"><u>Liquidity</u><div><b>LP burned</b><p>Buried, and this time by somebody who wrote down where. The keys are gone and the hole has been filled in properly with the good soil.</p></div></div>
+      <div class="pr"><u>Tax</u><div><b>0%</b><p>Nothing on the buy, nothing on the sell, no fee for treats. Everything he takes he takes off the kitchen counter like a gentleman.</p></div></div>
+      <div class="pr"><u>Ownership</u><div><b>Renounced</b><p>Mint and freeze revoked. He can dig up the lawn, the flowerbed and the neighbour's lawn, but he cannot dig up your bag.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fm">$HENTINU · Hentinu Boden Laptop</div>
+  <p>Robinhood Chain · the lawn will grow back · the drive will not</p>
+  <div class="ca-row"><span>CA</span><b class="ca-val">soon</b></div>
+</footer>
+
+</div><!-- /stage -->
+
+<div id="final"><div class="card">
+  <h3>Eight out of eight. Much recovered.</h3>
+  <p>Every bone is up, every file is public, and the garden looks like the surface of the moon. He would like it noted that he found all of them, eventually, and that the lawn was already like that.</p>
+</div></div>
+
+<div id="gate">
+  <div class="gin">
+    <img src="assets/f-face.webp" alt="Hentinu, ready to dig">
+    <h2>Whose laptop was that</h2>
+    <p>Robinhood Chain · he is not saying · the ticket has a paw print on it</p>
+    <button class="enter" id="enterBtn">Let him in</button>
+  </div>
+</div>
+
+<script>
+/* ============ SETTINGS wiring ============ */
+document.addEventListener('DOMContentLoaded', function(){
+  var CA=(window.CONTRACT||"").trim(), TW=(window.TWITTER||"").trim();
+  document.querySelectorAll('a[href]').forEach(function(a){
+    var h=a.getAttribute('href')||"";
+    if(h.indexOf('pump.fun')>-1){ if(CA) a.href='https://pump.fun/coin/'+CA; }
+    else if(h.indexOf('dexscreener')>-1){ if(CA) a.href='https://dexscreener.com/search?q='+CA; }
+    else if(h.indexOf('x.com')>-1||h.indexOf('twitter.com')>-1){ if(TW) a.href=TW; }
+  });
+  if(CA){
+    document.querySelectorAll('.ca b, .ca-val').forEach(function(b){ b.textContent=CA; });
+    document.querySelectorAll('.ca, .ca-row').forEach(function(el){
+      el.title=CA; el.style.cursor='pointer';
+      el.addEventListener('click', function(){
+        if(navigator.clipboard) navigator.clipboard.writeText(CA);
+        var b=el.querySelector('b'); if(!b) return; var o=b.textContent;
+        b.textContent='copied'; setTimeout(function(){ b.textContent=o; },1100);
+      });
+    });
+  }
+});
+
+/* ============ audio ============ */
+var actx=null, sfxOn=false, vol=.7;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return actx; }
+function tone(f1,f2,dur,type,g){
+  if(!sfxOn) return; var c=ac(); if(!c) return;
+  var o=c.createOscillator(), gg=c.createGain();
+  o.type=type||'square'; o.frequency.setValueAtTime(f1,c.currentTime);
+  if(f2) o.frequency.exponentialRampToValueAtTime(Math.max(30,f2),c.currentTime+dur);
+  gg.gain.setValueAtTime((g||.05)*vol,c.currentTime);
+  gg.gain.exponentialRampToValueAtTime(.0001,c.currentTime+dur);
+  o.connect(gg); gg.connect(c.destination); o.start(); o.stop(c.currentTime+dur+.03);
+}
+function noiseB(dur,g,hz){
+  if(!sfxOn) return; var c=ac(); if(!c) return;
+  var n=Math.floor(c.sampleRate*dur), b=c.createBuffer(1,n,c.sampleRate), d=b.getChannelData(0);
+  for(var i=0;i<n;i++) d[i]=(Math.random()*2-1)*(1-i/n);
+  var s=c.createBufferSource(); s.buffer=b;
+  var f=c.createBiquadFilter(); f.type='lowpass'; f.frequency.value=hz||520;
+  var gg=c.createGain(); gg.gain.value=(g||.13)*vol;
+  s.connect(f); f.connect(gg); gg.connect(c.destination); s.start();
+}
+function sfxDig(){ noiseB(.22,.16,600); tone(170,90,.14,'triangle',.045); }
+function sfxJunk(){ tone(300,180,.16,'square',.05); setTimeout(function(){ tone(220,140,.14,'square',.04); },90); }
+function sfxBone(){ [784,988,1175].forEach(function(f,i){ setTimeout(function(){ tone(f,f,.16,'triangle',.06); },i*80); }); }
+function sfxCoin(){ tone(880+Math.random()*400,1750,.09,'square',.05); }
+function sfxWoof(){ tone(300,120,.18,'sawtooth',.07); setTimeout(function(){ tone(240,90,.22,'sawtooth',.06); },140); }
+function sfxDone(){ [523,659,784,1047,1319,1568].forEach(function(f,i){ setTimeout(function(){ tone(f,f,.24,'triangle',.06); },i*130); }); }
+
+/* ============ the tune (original, 3/4) ============ */
+var MU={on:false,t:null,step:0,next:0,g:null};
+var MEL=[523,659,784, 659,784,988, 587,740,880, 494,587,740,
+         523,659,784, 784,988,1175, 880,784,659, 587,523,0];
+var BASS=[131,0,0, 147,0,0, 110,0,0, 123,0,0, 131,0,0, 165,0,0, 147,0,0, 131,0,0];
+var SP=0.19;
+function mn(f,at,dur,type,g,dest,cut){
+  var c=ac(); if(!c||!f) return;
+  var o=c.createOscillator(), gg=c.createGain(), fl=c.createBiquadFilter();
+  fl.type='lowpass'; fl.frequency.setValueAtTime(cut||2600,at);
+  o.type=type; o.frequency.setValueAtTime(f,at);
+  gg.gain.setValueAtTime(.0001,at); gg.gain.exponentialRampToValueAtTime(g,at+.02);
+  gg.gain.exponentialRampToValueAtTime(.0001,at+dur);
+  o.connect(fl); fl.connect(gg); gg.connect(dest); o.start(at); o.stop(at+dur+.03);
+}
+function musSchedule(){
+  var c=ac(); if(!c) return;
+  while(MU.next < c.currentTime+.2){
+    var i=MU.step%MEL.length, at=Math.max(MU.next,c.currentTime+.02);
+    mn(MEL[i],at,.26,'square',.045,MU.g,3000);
+    if(BASS[i]) mn(BASS[i],at,.42,'triangle',.07,MU.g,900);
+    MU.next+=SP; MU.step++;
+  }
+}
+function musStart(){
+  var c=ac(); if(!c) return; if(c.state==='suspended') c.resume();
+  if(!MU.g){ MU.g=c.createGain(); MU.g.connect(c.destination); }
+  MU.g.gain.value=.42*vol; MU.on=true; MU.next=c.currentTime+.1;
+  if(MU.t) clearInterval(MU.t); MU.t=setInterval(musSchedule,50);
+  document.getElementById('kMus').textContent='Music: on';
+}
+function musStop(){ MU.on=false; if(MU.t) clearInterval(MU.t); MU.t=null; if(MU.g) MU.g.gain.value=0;
+  document.getElementById('kMus').textContent='Music: off'; }
+document.getElementById('kMus').addEventListener('click',function(){ MU.on?musStop():musStart(); });
+document.getElementById('kSnd').addEventListener('click',function(){
+  sfxOn=!sfxOn; this.textContent='Sound: '+(sfxOn?'on':'off');
+  if(sfxOn){ var c=ac(); if(c&&c.state==='suspended') c.resume(); sfxWoof(); }
+});
+document.addEventListener('visibilitychange',function(){
+  if(document.hidden&&MU.on&&MU.t){ clearInterval(MU.t); MU.t=null; }
+  else if(!document.hidden&&MU.on&&!MU.t){ var c=ac(); if(c) MU.next=c.currentTime+.1; MU.t=setInterval(musSchedule,50); }
+});
+
+/* ============ files on the drive ============ */
+var FILES=[
+ {t:'The password list', p:'Every password he has ever needed, written out in full, in a file called PASSWORDS, on the unencrypted drive he then buried in soil. He is very proud of this system and has explained it to the fence.'},
+ {t:'The walk log', p:'Eleven months of walks logged to the second, including four he insists happened and which nobody else in this household remembers agreeing to.'},
+ {t:'The snack ledger', p:'A running total of every treat owed to him since the day he arrived. It is in bold. It has been carried forward twice and it does not go down.'},
+ {t:'The 4 a.m. patrol', p:'Audio from the nightly perimeter check, eleven minutes of it, mostly breathing, with one very loud section in the middle that he still will not explain.'},
+ {t:'The water bowl incident', p:'Photographs taken from bowl height at 15:42, timestamped, framed in a way that does not include the keyboard, and saved under HOLIDAY.'},
+ {t:'The neighbour cat file', p:'A dossier. Nine photographs, three sketches and a map with one route marked in a colour he chose himself. The cat has never once been informed.'},
+ {t:'To the moon', p:'A folder called TO THE MOON containing eleven photographs of the moon taken from the middle of the lawn, all of them blurred, because he moves, because it is the moon.'},
+ {t:'The backup of the backup', p:'A note explaining that the real backup is buried somewhere much safer than this one. There is no map attached. The note appears to be the map.'}
+];
+var bonesEl=document.getElementById('bones');
+FILES.forEach(function(f,i){
+  var d=document.createElement('article'); d.className='bone locked'; d.id='bn'+i;
+  d.innerHTML='<div class="no">bone '+String(i+1).padStart(2,'0')+'</div><h3>'+f.t+'</h3><p>'+f.p+'</p>';
+  bonesEl.appendChild(d);
+});
+
+/* ============ the garden ============ */
+var JUNK=[
+ {e:'🧦', s:'One sock. It has been down there since spring and there is no plan for it, there has never been a plan for it.'},
+ {e:'🎾', s:'A tennis ball, completely flat. He has never thrown a ball in his life, so this one arrived here entirely on its own.'},
+ {e:'🦴', s:'A bone that is definitely not his, marked with a name he refuses to read out loud in his own garden.'},
+ {e:'👟', s:'A left shoe. Somewhere in this lawn there is a right shoe, and finding it is going to be a completely different afternoon.'},
+ {e:'🪨', s:'A rock. He was extremely excited about this rock in March and has since cooled on the entire concept of rocks.'},
+ {e:'🧸', s:'A squeaky toy with the squeak removed by hand over the course of one very long and very focused evening.'},
+ {e:'🔌', s:'The laptop charger. This is arguably progress, except the laptop is on a shelf in a shop eighteen months away.'},
+ {e:'📱', s:'A phone with four percent battery and three hundred and sixteen notifications, none of which are for him.'},
+ {e:'💻', s:'Another laptop. Nobody has reported this one missing yet and he is not going to be the one who starts that conversation.'},
+ {e:'🧤', s:'One glove, chewed at the thumb, from a pair that was described at the time as expensive and irreplaceable.'},
+ {e:'🥪', s:'Half a sandwich from the era before the water bowl incident. Still wrapped. Still, in his opinion, on the table.'},
+ {e:'🥣', s:'The water bowl. It has been down here the whole time, which raises questions that nobody in this garden wants to ask.'},
+ {e:'🪵', s:'A stick. He insists this is the stick, although the stick was much bigger and lived by the fence and everybody knows it.'},
+ {e:'🏷️', s:'His name tag, buried on purpose, on a day when being findable did not suit him at all.'},
+ {e:'🧾', s:'The receipt from the repair shop, buried at speed, presumably so that nobody could ever go and collect the laptop with it.'},
+ {e:'🕳️', s:'Nothing at all. He is confident about this hole, he stands by this hole, and he would like permission to dig it again.'}
+];
+var plot=document.getElementById('plot'), foundEl=document.getElementById('found');
+var holes=0, junkN=0, filesN=0, cells=[];
+(function build(){
+  var arr=[];
+  for(var i=0;i<8;i++) arr.push({file:i});
+  JUNK.forEach(function(j){ arr.push({junk:j}); });
+  for(var k=arr.length-1;k>0;k--){ var r=Math.floor(Math.random()*(k+1)); var t=arr[k]; arr[k]=arr[r]; arr[r]=t; }
+  arr.forEach(function(c,i){
+    var b=document.createElement('button'); b.className='tile'; b.id='tl'+i;
+    b.setAttribute('aria-label','patch of grass '+(i+1));
+    b.innerHTML='<span class="em">'+(c.file!==undefined?'🦴':c.junk.e)+'</span>';
+    b.addEventListener('click',function(){ dig(i); });
+    plot.appendChild(b); cells.push(c);
+  });
+})();
+
+function dig(i){
+  var b=document.getElementById('tl'+i), c=cells[i];
+  if(b.classList.contains('dug')) return;
+  b.classList.add('dug'); holes++;
+  document.getElementById('cHoles').textContent=holes;
+  sfxDig();
+  var ac2=ac(); if(ac2&&ac2.state==='suspended') ac2.resume();
+  if(c.file!==undefined){
+    b.classList.add('bone'); filesN++;
+    document.getElementById('cFiles').textContent=filesN+' / 8';
+    var card=document.getElementById('bn'+c.file);
+    if(card){ card.classList.remove('locked'); card.classList.add('got'); }
+    foundEl.className='found hit';
+    foundEl.innerHTML='<b>Bone '+String(c.file+1).padStart(2,'0')+' — '+FILES[c.file].t.toUpperCase()+'.</b> '+FILES[c.file].p;
+    setTimeout(sfxBone,140);
+    if(filesN===8) finale();
+  } else {
+    junkN++; document.getElementById('cJunk').textContent=junkN;
+    foundEl.className='found';
+    foundEl.innerHTML=c.junk.s;
+    setTimeout(sfxJunk,140);
+  }
+}
+document.getElementById('kAll').addEventListener('click',function(){
+  var left=[]; for(var i=0;i<cells.length;i++) if(!document.getElementById('tl'+i).classList.contains('dug')) left.push(i);
+  if(!left.length){ sfxJunk(); foundEl.innerHTML='There is no lawn left. He has checked, twice, with his nose.'; return; }
+  left.forEach(function(i,k){ setTimeout(function(){ dig(i); },k*170); });
+  this.disabled=true; this.textContent='digging…';
+});
+var done=false;
+function finale(){
+  if(done) return; done=true;
+  setTimeout(function(){
+    sfxDone();
+    var f=document.getElementById('final'); f.classList.add('on');
+    for(var i=0;i<28;i++) setTimeout(dropCoin,i*70);
+    setTimeout(function(){ f.classList.remove('on'); },6000);
+  },700);
+}
+
+/* pat him */
+var pup=document.getElementById('pup'), drop=document.getElementById('drop');
+pup.addEventListener('click',function(e){
+  var r=drop.getBoundingClientRect();
+  for(var i=0;i<12;i++) dropCoin(e.clientX-r.left,e.clientY-r.top);
+  sfxWoof(); sfxCoin(); setTimeout(sfxCoin,90); setTimeout(sfxCoin,180);
+});
+function dropCoin(x,y){
+  var d=document.createElement('div'); d.className='coin';
+  var W=drop.clientWidth||220, H=drop.clientHeight||220;
+  if(x===undefined){ x=Math.random()*W; y=-24; }
+  d.style.left=(x-13)+'px'; d.style.top=(y-13)+'px'; drop.appendChild(d);
+  var vx=(Math.random()-.5)*7, vy=-4-Math.random()*7, t=0, rot=(Math.random()-.5)*26, px=x-13, py=y-13;
+  (function stp(){
+    t++; vy+=.44; px+=vx; py+=vy;
+    d.style.transform='translate('+(px-(x-13))+'px,'+(py-(y-13))+'px) rotate('+(t*rot)+'deg)';
+    if(t>110||py>H+260){ d.remove(); return; }
+    if(t>92) d.style.opacity=String(1-(t-92)/18);
+    requestAnimationFrame(stp);
+  })();
+}
+
+/* gate */
+var gate=document.getElementById('gate');
+function letHimIn(){
+  document.body.classList.add('is-on'); gate.classList.add('is-gone');
+  sfxOn=true; document.getElementById('kSnd').textContent='Sound: on';
+  var c=ac(); if(c&&c.state==='suspended') c.resume();
+  sfxWoof(); setTimeout(musStart,400);
+}
+document.getElementById('enterBtn').addEventListener('click',letHimIn);
+setTimeout(function(){ if(!document.body.classList.contains('is-on')) letHimIn(); },25000);
+</script>
+</body>
+</html>
